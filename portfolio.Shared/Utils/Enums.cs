@@ -8,5 +8,9 @@ namespace portfolio.Shared
 {
     public static class Enums
     {
+        public class StoredProcedure
+        {
+            public static string RegistrationDropDown = "RegistrationDropDown";
+        }
     }
 }

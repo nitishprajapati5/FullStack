@@ -12,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<RequestProcessor>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddTransient<IDataServices, DataServices>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
