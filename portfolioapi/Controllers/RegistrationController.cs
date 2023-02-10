@@ -5,9 +5,6 @@ namespace portfolioapi.Controllers
     [ApiController]
     public class RegistrationController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+   
     }
 }

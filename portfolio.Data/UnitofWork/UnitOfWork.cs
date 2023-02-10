@@ -25,9 +25,11 @@ namespace portfolio.Data.UnitofWork
             var options = new DbContextOptionsBuilder<DBEntities>();
 
             //Connection String
-            string connectionstring = "";
+            string connectionstring = string.Format("{0}",
+                                        configuration.GetConnectionString("DBEntities"));
 
             options.UseSqlServer(connectionstring);
+            _context = new DBEntities(options.Options);
         }
         #endregion
 

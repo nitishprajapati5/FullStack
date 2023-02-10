@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using portfolio.Models.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,8 @@ namespace portfolio.Data
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<GroupDetails> GroupDetail { get; set; }
+
     }
 }

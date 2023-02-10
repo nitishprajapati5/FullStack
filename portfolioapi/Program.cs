@@ -1,5 +1,10 @@
+using portfolio.Models;
 using portfolio.Services;
 using portfolioapi;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Hosting;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +16,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<RequestProcessor>();
+builder.Services.AddTransient<portfolio.Data.UnitofWork.UnitOfWork>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<IDataServices, DataServices>();
+builder.Configuration.GetSection("AppConfig").Get<AppConfig>();
+builder.Services.Configure<AppConfig>(builder.Configuration.GetSection("AppConfig"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,3 +38,4 @@ app.UseRouting();
 app.MapControllers();
 
 app.Run();
+
